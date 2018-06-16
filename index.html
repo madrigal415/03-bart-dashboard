@@ -94,7 +94,7 @@
 
     const timeEst = document.querySelector("#time-estimate");
 
-    fetch('http://api.bart.gov/api/etd.aspx?cmd=etd&orig=24th&key=MW9S-E7SL-26DU-VV8V&json=y')
+    fetch('https://api.bart.gov/api/etd.aspx?cmd=etd&orig=24th&key=MW9S-E7SL-26DU-VV8V&json=y')
       .then(function(response) {
         return response.json();
       })
