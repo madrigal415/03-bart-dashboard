@@ -1,0 +1,117 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>BART dashboard by dsm</title>
+  <style>
+  body {
+    font-family: futura;
+    background: turquoise;
+    margin: 0 300px;
+    text-align:center;
+  }
+
+  .main {
+    background:white;
+    border-radius:15px;
+    display: grid;
+    grid: minmax(100px,1fr)/minmax(100px,1fr);
+    padding:10px 50px;
+    text-align:left;
+   
+  }
+
+  footer {
+    margin: 20px 0;
+    padding: 20px;
+    background-color:lightgreen;
+    border-radius:15px;
+    font-size: .8em;
+  }
+
+  ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  h1 {
+    font-size:2em;
+  }
+
+  h2 {
+    height: auto;
+  }
+
+  .destinations {
+    color: #1CE;
+    font-size: 24px;
+  }
+
+  .times {
+    display:flex;
+    font-size: 36px;
+    color:darkslategray;
+    font-weight:bold;
+  } 
+
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <h1>BART Dashboard by dsm</h1>
+  </header>
+
+  <div class="main">
+    <h2>Next train departing 24th Street: </h2>
+    <div id="time-estimate"></div>
+
+  </div>
+
+  <footer>
+    For more by dsm say hi on twitter <a href="https://www.twitter.com/dsmadrigal/" target="_blank"> @dsmadrigal</a>.
+  </footer>
+
+  </div>
+
+  <script>
+
+    const APIkey = "QKBL-P2TX-9BBT-DWE9";
+
+    const timeEst = document.querySelector("#time-estimate");
+
+    fetch('http://api.bart.gov/api/etd.aspx?cmd=etd&orig=24th&key=MW9S-E7SL-26DU-VV8V&json=y')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(myJson) {
+        const etds = myJson.root.station[0].etd;
+        
+        let times = '<ul class="destinations">';
+
+        // adding the destinations and times to the page
+        etds.forEach(element => {
+          times += `<li>${element.destination}</li><ul class="times">`;
+          element.estimate.forEach(x => {
+            times += `<li>${x.minutes}, &nbsp</li>`;
+          });
+          times +='</ul>';
+        });
+
+        times += "</ul>";
+
+
+        timeEst.innerHTML = times;
+      
+      });
+  
+  
+  
+  </script> 
+
+</body>
+</html>
