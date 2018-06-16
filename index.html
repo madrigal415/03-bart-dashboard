@@ -8,16 +8,20 @@
   <style>
   body {
     font-family: futura;
-    background: turquoise;
-    margin: 0 300px;
+    
+    margin: 0 250px;
     text-align:center;
+    background-image: url(BART_cc_map);
+    background-color: rgba(64,224,208,.4);
+    background-repeat: no-repeat;
   }
 
   .main {
     background:white;
     border-radius:15px;
     display: grid;
-    grid: minmax(100px,1fr)/minmax(100px,1fr);
+    grid: minmax(100px,1fr)/repeat(2,minmax(100px,1fr));
+    align-items: end;
     padding:10px 50px;
     text-align:left;
    
@@ -57,6 +61,11 @@
     font-weight:bold;
   } 
 
+  #map {
+    max-width:100%;
+    height:auto;
+  }
+
   </style>
 
 </head>
@@ -67,9 +76,10 @@
   </header>
 
   <div class="main">
-    <h2>Next train departing 24th Street: </h2>
-    <div id="time-estimate"></div>
-
+    <div id="time-estimate"><h2>Next train departing 24th Street: </h2></div>
+    <div>
+      <img src="BART_cc_map.png" alt="Map of BART stations" id="map">
+    </div>
   </div>
 
   <footer>
@@ -91,7 +101,7 @@
       .then(function(myJson) {
         const etds = myJson.root.station[0].etd;
         
-        let times = '<ul class="destinations">';
+        let times = '<h2>Next train departing 24th Street: </h2><ul class="destinations">';
 
         // adding the destinations and times to the page
         etds.forEach(element => {
