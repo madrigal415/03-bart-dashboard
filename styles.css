@@ -1,0 +1,80 @@
+body {
+    font-family: futura;
+    margin: 0 150px;
+    text-align:center;
+    background-image: url(BART_cc_map);
+    background-color: rgba(64,224,208,.4);
+    background-repeat: no-repeat;
+  }
+
+  .main {
+    background:white;
+    border-radius:15px;
+    display: grid;
+    grid-template-areas: 
+        "First Second"
+        "Map Map";
+    grid: 1fr 1fr/ 1fr 1fr;
+    align-items: start;
+    justify-items:center;
+    padding:20px 50px;
+    text-align:left;
+    height:100%;
+
+   
+  }
+
+  footer {
+    margin: 20px 0;
+    padding: 20px;
+    background-color:lightgreen;
+    border-radius:15px;
+    font-size: .8em;
+  }
+
+  ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  h1 {
+    font-size:2em;
+  }
+
+  h2 {
+    height: auto;
+  }
+  time-estimate-eb {
+      grid-area: First;
+  }
+
+  time-estimate-sf {
+      grid-area: Second;
+  }
+
+  .destinations {
+    color: #1CE;
+    font-size: 24px;
+  }
+
+  .times {
+    display:flex;
+    font-size: 36px;
+    color:darkslategray;
+    font-weight:bold;
+  } 
+
+  #time-estimate {
+    padding: 0 20px;
+  }
+
+  #map {
+    display:grid;
+    max-width:100%;
+    height:auto;
+    grid-area: Map;
+    justify-self:center;
+    
+
+  }
