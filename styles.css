@@ -2,7 +2,6 @@ body {
     font-family: futura;
     margin: 0 150px;
     text-align:center;
-    background-image: url(BART_cc_map);
     background-color: rgba(64,224,208,.4);
     background-repeat: no-repeat;
   }
@@ -20,8 +19,16 @@ body {
     padding:20px 50px;
     text-align:left;
     height:100%;
+    opacity:.99;
 
-   
+  }
+  #map{
+    content: "";
+    background-image: url("BART_cc_map.png");
+    background-size:cover;
+    opacity: 0.5;
+    width: 100%;
+    height:100%;
   }
 
   footer {
@@ -69,12 +76,14 @@ body {
     padding: 0 20px;
   }
 
-  #map {
-    display:grid;
-    max-width:100%;
-    height:auto;
-    grid-area: Map;
-    justify-self:center;
-    
+  }
+
+  #time {
+    padding:0;
+    margin:0;
+    color: gray;
+    font-size: 1em;
+    position:relative;
+    top:-1em;
 
   }
