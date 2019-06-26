@@ -6,14 +6,15 @@ body {
     background-repeat: no-repeat;
   }
 
-  .main {
+  #main {
     background:white;
     border-radius:15px;
     display: grid;
+    grid: auto 1fr/ 1fr 1fr;
     grid-template-areas: 
         "First Second"
         "Map Map";
-    grid: 1fr 1fr/ 1fr 1fr;
+
     align-items: start;
     justify-items:center;
     padding:20px 50px;
@@ -22,13 +23,24 @@ body {
     opacity:.99;
 
   }
+  #time-estimate-eb {
+    grid-area: First;
+    border: 10px red solid;
+  }
+
+  #time-estimate-sf {
+    grid-area: Second;
+    border: 10px purple solid;
+  }
+
   #map{
     content: "";
-    background-image: url("BART_cc_map.png");
-    background-size:cover;
     opacity: 0.5;
-    width: 100%;
-    height:100%;
+    max-width: 50vw;
+    max-height:50vh;
+    grid-area: Map;
+    overflow:hidden;
+    object-fit: contain;
   }
 
   footer {
@@ -52,13 +64,7 @@ body {
   h2 {
     height: auto;
   }
-  time-estimate-eb {
-      grid-area: First;
-  }
-
-  time-estimate-sf {
-      grid-area: Second;
-  }
+  
 
   .destinations {
     color: #1CE;
